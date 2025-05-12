@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web07 Ejercicio 03-2</title>
+
+</head>
+
+<body>
+    <h1 id="title"> Web07 - Ejercicio 03 </h1>
+    <p>Uso de JavaScript externo</p>
+    <button onclick="saludar()">Click me!</button>
+    <button onclick="cambiarBackgroundColor('cyan')"> Fondo cyan </button>
+    <button onclick="cambiarBackgroundColor('yellow')"> Fondo amarillo </button>
+    <button onclick="cambiarBackgroundColor('brown')"> Fondo cafe </button>
+    <br>
+    <p id="green-paragraph" onclick="changeToGreenColor()">Cambiar a color verde</p>
+    <p id="red-paragraph" onclick="changeColor(document.getElementById('red-paragraph'), 'red')">Cambiar a color rojo
+    </p>
+    <p id="yellow-paragraph" onclick="changeColor(this, 'yellow')">Cambiar a color amarillo</p>
+    <p id="blue-paragraph" onclick="changeColor(this, 'blue')">Cambiar a color azul</p>
+    <p onclick="changeColor(this, '#AACC9A')">Cambiar a color a #AACC9A </p>
+
+    <script src="./myScript.js" defer>
+        /* Cualquier script que se ponga en medio de la etiqueta no funcionara solo se interactua con el src */
+    </script>
+    <!-- Los script personalizados se ponen después de los de librerías así mismo los archivos de scripts se pone al final antes del </body> y después de todos los demas elementos html usar defer en cualquier caso. -->
+</body>
+
+</html>
