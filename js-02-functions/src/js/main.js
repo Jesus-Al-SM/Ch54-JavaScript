@@ -248,8 +248,75 @@ const imprimirEnDomParagraph = (mensaje) =>{
     document.getElementById(resultado-sumatoria);
     refParagraph.innerText = mensaje;}
 }
+
 sumarEImprimir(10 , 14,);
 sumarEImprimir(10 , 14, console.log);
 sumarEImprimir(10 , 14, ImprimirEnParagraph);
 sumarEImprimir(10 , 14, ImprimirEnH2);
 //sumarEImprimir(10, 14, alert);
+
+
+// -------------- Recursividad ---------------------
+/*
+  Una función recursiva es una función que se llama así misma durante su ejecución.
+
+  Se utilizan en algoritmos y soluciones que se basan en la división y conquista
+  como cálculos matemáticos, recorrido de estructura de datos y algoritmos de búsqueda
+  y ordenamiento.
+
+  Patrón:
+    function nombreFuncionRecursiva( parametro  ){
+        if( condicionParo){
+            return expresión;
+        }
+        else {
+            // llamada recursiva
+            nombreFuncionRecursiva( nuevoParametro );
+        }
+    }
+*/
+
+// Calcular el factorial de un número
+// factorial de 5: 5 * 4 * 3 * 2 * 1;
+function factorialConCicloFor( numero ) {
+    let factorial = 1;
+    for (let i=0; i < numero; i++) {
+      factorial *= (numero - i); // factorial = factorial * (numero - i);
+      console.log(`i: ${i}, factorial For: ${factorial}, numero: ${numero - i}` );
+    }
+    return factorial;
+}
+console.log(`El factorial de en For 5 es: ${factorialConCicloFor(5)}`); // 120
+
+// calculando el factorial con recursividad
+ 
+function factorialConRecursividad ( numero ){
+  if( numero <= 0) return 1;
+  const result = factorialConRecursividad( numero - 1) * numero;
+  console.log(`El factorial de ${numero} es ${result}`);
+  return result;
+}
+factorialConRecursividad (5);
+
+/*
+ Generar una función recursiva que muestre en consola un saludo
+ donde se indique el número saludo deseado.
+  ej: saludar 10 veces
+  Saludo 1
+  Saludo 2
+  Saludo 3
+  Saludo 4
+  Saludo 5
+  Saludo 6
+   ....
+  Saludo 10
+*/
+
+function saludoConRecursividad (numero) {
+  if (numero <= 1) return (console.log(`Saludo ${numero}`));
+  const result = saludoConRecursividad (numero - 1);
+  console.log(`Saludo ${numero}`);
+  return result; 
+}
+
+saludoConRecursividad(10);
