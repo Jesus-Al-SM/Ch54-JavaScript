@@ -174,9 +174,17 @@ imprimirAreaCirculoFlecha(5);
 Inicializa un parámetro de la función, si no se envía el argumento cuando se invoca
 
 */
+const saludarPersona= ( nombre = "persona invitada" ) => console.log(`Hola ${nombre}, ya nos vamos a descansar.`)
+saludarPersona(); // Pasas un argumento vació por lo tanto nombre va a ser indefinido al pasar unargumento vacio o pasa con el parámetro por defecto que es igalado en la declaración del parametro
+saludarPersona("Hambrientos de poder")
 
-
-
+// ParseInt ("Valor", Base) Base predeterminada 10
+console.log( parseInt ("5"));
+console.log( parseInt ("5"));
+console.log( parseInt ("5"));
+console.log( parseInt ("1000" , 2)); // 8 (base 10) 1000 (base 2)
+console.log( parseInt ("D2042D")); // NaN (base 10)
+console.log( parseInt ("D2042D", 16)); // 13,763,629
 
 
 /*
@@ -186,7 +194,62 @@ Inicializa un parámetro de la función, si no se envía el argumento cuando se 
  Se pasa en el argumento como referencia ( sin parentesis).
  */
 
+ const imprimirMensaje = ( fncCallBack ) => fncCallBack("Hola Ch54");
+                                            // 18("Hola Ch54");
+                                            // "patito"("Hola Ch54");
+                                            // console.log("Hola Ch54");
+                                            // undefined("Hola Ch54");
+ // imprimirMensaje( 18 ); // fncCallBack is not a function
+ // imprimirMensaje( "Patito" ); // fncCallBack is not a function
+ imprimirMensaje( console.log ); // "Hola Ch54"
+ // imprimirMensaje( console.log("Luis") ); //  fncCallBack is not a function
+ // imprimirMensaje( undefined ); //  fncCallBack is not a function
 
+ const enviarAParrafo = mensaje => {
+  const saluda = "Hola, buen día";
+  const referencia = document.getElementById("saludo-callback");
+  referencia.innerHTML = `${saluda} ${mensaje}`
+ };
 
+ imprimirMensaje(enviarAParrafo);
 
-  
+ // usando la función imrpimirMensaje, enviar un callback para que 
+ // imprima con alert
+
+/*  
+ const enviarAlerta = mensaje => alert(mensaje);
+ imprimirMensaje(enviarAlerta);
+*/
+
+ // imprimirMensaje(alert);
+
+// =========================================================
+/* 
+  Realizar una función que sume dos números y que imprima
+  el resultado.
+  - inicialmente se imprimirá en la consola
+  - es posible que se  te pida imprimir en el dom
+  - es posible que se te pida imprimir en un alert
+*/
+
+const sumarDosNumeros = (a,b ) => a + b;
+
+const sumarEImprimir = (a, b, imprimir = console.log) => {
+  const resultado = sumarDosNumeros(a, b);
+  const mensaje = `La suma de ${a} + ${b} es: ${resultado}`;
+  imprimir (mensaje);
+}
+
+const ImprimirEnParagraph = mensaje => document.getElementById('resultado-sumatoria').innerText = mensaje;
+const ImprimirEnH2 = mensaje => document.getElementById('resultado-sumatoriaH2').innerText = mensaje;
+const imprimirPorID = (id, mensaje) => document.getElementById(`${id}`).innerText = mensaje
+const imprimirEnDomParagraph = (mensaje) =>{
+  const refParagraph = mensaje =>{
+    document.getElementById(resultado-sumatoria);
+    refParagraph.innerText = mensaje;}
+}
+sumarEImprimir(10 , 14,);
+sumarEImprimir(10 , 14, console.log);
+sumarEImprimir(10 , 14, ImprimirEnParagraph);
+sumarEImprimir(10 , 14, ImprimirEnH2);
+//sumarEImprimir(10, 14, alert);
