@@ -65,8 +65,13 @@
     </section>
 
     <section class="row my-3">
-
+      <!-- No es recomendado poner funciones dentro de inline en html o incrustado siempre lo mejor es hacerlo desde un archivo externo -->
+      <button onclick="(function inicializacion(){
+        console.log(`Hola desde el botón`);
+        console.log(`Alguien cumple años hoy?`);
+      })()"> Click me </button>
     </section>
+    <p>El resultado del área del círculo es: <span id="area-circulo"></span></p>
   </main>
 
   <footer class="container text-center">   

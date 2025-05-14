@@ -32,7 +32,7 @@ console.log("JS-02 funciones");
 https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Functions
 ----------- Funciones declaradas --------------
 (function declaration, function statement)
-Una característica de las funciones declaradas es que tien hoisting.
+Una característica de las funciones declaradas es que tiene hoisting.
 
 sintaxis:
 function nombreFuncionCamelCase ( parámetros ){
@@ -45,6 +45,11 @@ o funciones se eleven al comienzo de su ámbito antes de que se ejecute el códi
 
 */
 
+saludar("Jen");
+
+function saludar (nombre){
+  console.log("Qué te gustaria de regalo de cumpleaños? " + nombre);
+}
 
 
 
@@ -62,10 +67,32 @@ sintaxis:
         instrucciones;
     };
 */
+/* darRegalo("Jen","snickers") */
 
+const darRegalo = function (nombre, regalo){
+  console.log(`Felicidades ${nombre}, te traje ${regalo}`);
+};
 
+darRegalo("Jen","Tristeza");
 
+/*
+ Realizar una función declarada que sume dos números 
+ y retorne el resultado.
+ 
+ Realizar una función expresada que reste dos números 
+ y retorne el resultado.
+ 
+*/
+sumaDos(5,7);
+function sumaDos(num1, num2){
+  return console.log(`La suma de ${num1} + ${num2} es = ${num1+num2}`);
+}
 
+const restaDos = function (num1, num2){
+  return console.log(`La resta de ${num1} - ${num2} es = ${num1-num2}`);
+}
+
+restaDos(7,5);
 
 /*
  ------------ Funciones autoinvocadas -----------------------
@@ -77,7 +104,11 @@ sintaxis:
 
 */
 
-
+/* Las funciones anonimas se pueden autoinvocar con (función completa)(); */
+(function(dato){
+  console.log("Configuración inicial de la aplicación ");
+  console.log(`valor de dato autinvocado es ${dato}`);
+})(18);
 
 
 
@@ -88,7 +119,7 @@ Funciones similares a las funciones expresadas pero:
  - No requiere la palabra reservada function
  - Si tiene una solo instrucción no requiere las llaves {}
  - Si la instrucción es el mismo retorno, no requiere la palabra return
-
+ - Sí y solo sí solo tienes un parámetro de entrada puedes omitir los parentesís
 sintaxis:
     const nombreVariable = (parametros) => instrucción;
 
@@ -98,11 +129,44 @@ sintaxis:
     }
 */
 
+// Realizar una función fecha que calcule el área de un triángulo
+// la función debe retonrar el resultado.
+// Área = (base * altura) / 2;
 
+/* Función declarada */
+console.log(`El area del triangulo declarada es ${areaTrianguloDeclarada(5,3)}`);
+function areaTrianguloDeclarada (base, altura){
+  return ((base * altura)/2);
+};
 
+/* Función expresada */
+const areaTrianguloExpresada = function (base, altura){
+  return ((base * altura)/2);
+}
+console.log(`El area del triangulo expresada es ${areaTrianguloExpresada(5,3)}`)
 
+/* Función flecha */
+const areaTrianguloFlecha = (base, altura) => (base * altura)/2;
+console.log(`El area del triangulo flecha es ${areaTrianguloFlecha(5,3)}`);
 
+// ¿Qué sucede si uso console.log como retorno?
+const imprimirArea = (base, altura) => console.log(areaTrianguloFlecha(base, altura));
+imprimirArea(12, 20);
 
+console.log(imprimirArea(12,20));
+
+function imprimirEnConsole(mensaje){
+  console.log(mensaje);
+}
+console.log(imprimirEnConsole("Hola mundo")); // undefined
+
+// Realizar una función flecha que calcule el área de un círculo
+// Área = pi * radio^2
+// Usar una función flecha para imprimir el resultado 
+
+const areaCirculoFlecha = radio =>  Math.PI * radio ** 2;
+const imprimirAreaCirculoFlecha = radio => document.getElementById('area-circulo').innerText = areaCirculoFlecha(radio).toFixed(2) + " u²";
+imprimirAreaCirculoFlecha(5);
 
 /*
  ------------ Parámetros por defecto -----------------------
