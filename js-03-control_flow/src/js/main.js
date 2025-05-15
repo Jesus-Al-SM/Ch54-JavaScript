@@ -42,8 +42,84 @@
 
 */
 
+/*
+ Crear un arrow funcion que reciba el valor de edad.
+ Si la edad es mayor o igual a 18, la función debe retornar el mensaje
+ "Eres mayor de edad".
+
+ En caso contrario, retornar el mensaje "Eres menor de edad".
+
+ - Realizar la versión de if-else sin usar el bloque de código los {}
+*/
 
 
+const verificarEdad = edad => {
+    if (edad >= 18) return "Eres mayor de edad"
+        else return "Eres menor de edad";
+}
+
+console.log(verificarEdad(17));
+console.log(verificarEdad(18));
+console.log(verificarEdad(19));
+
+/*
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18 y menor o igual a 30
+                 ( evalur con 18 Y(&&) evaluar con 30        )
+ la función debe retornar el mensaje "Tu luchador es Místico".
+ Si es mayor o igual a 31 el mensaje "Tu luchador es el perro Aguayo".
+ Si es menor a 18 el mensaje "Tu luchador es Penta"
+*/
+
+/* const verificarRangoEdad = edad => {
+    if (edad >= 18 && edad <= 30) return "Tu luchador es Místico"
+        else if (edad < 18) return "Tu luchador es Penta"
+            else return "Tu luchador es el Perro Aguayo";
+}
+ */
+const verificarEdad2 = (edad) =>{
+    if (edad >= 18 && edad <= 30) return "Tu luchador es místico.";
+    else if (edad >= 31) return "Tu luchador es el perro guayo.";
+    else return "Tu luchador es penta.";
+};
+console.log(verificarEdad2(25));
+/* 
+console.log(verificarRangoEdad(25));
+console.log(verificarRangoEdad(42));
+console.log(verificarRangoEdad(15));
+ */
+{
+    let myVarLet = 30;
+    const myVarConst = 40;
+    var myVarVar = 50;
+    console.log(myVarLet, myVarConst, myVarVar) // 30 , 40 , 50
+    {
+        let myVarLet = 100;
+        const myVarConst = 110;
+        var myVarVar = 120;
+        console.log(myVarLet, myVarConst, myVarVar) // 100, 110, 120
+    }
+    console.log(myVarLet, myVarConst, myVarVar) // 30, 40, 120
+}
+
+
+// Ejercicios mentales
+let active = false
+if( active === true ); {
+  console.log("Está activo")
+}
+console.log("Fin del programa");
+// --------------Ejercicio 2-----------------
+active = false;
+if( active )
+  console.log("Está activo");
+  console.log("Tiene autorización");
+console.log("Fin del programa");
+// --------------Ejercicio 3-----------------
+active = false;
+if( active ); console.log("Está activo");
+//else console.log("No está activo"); // Unexpected token 'else'
+// console.log("Fin del programa");
 
 //--------------- Condicional Switch --------------------------
 /*
