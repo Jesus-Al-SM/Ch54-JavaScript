@@ -242,8 +242,87 @@ console.log(velocimetroCasero2(4));
 
 */
 
+const verificarPagoDeTarjeta = (estaPagado) =>{
+    let msj;
+    if(estaPagado){
+        msj = "La tarjeta ha sido pagada";
+    }else {
+        msj = "La tarjeta no ha sido pagada";
+    }
+}
 
+console.log(verificarPagoDeTarjeta(true));
+console.log(verificarPagoDeTarjeta(false));
 
+const verificarPagoDeTarjetaUsandoTernario = (estaPagado) =>{
+    return estaPagado ? "La tarjeta ha sido pagada" : "La tarjeta no ha sido pagada";
+
+}
+
+console.log(verificarPagoDeTarjetaUsandoTernario(true));
+console.log(verificarPagoDeTarjetaUsandoTernario(false));
+
+/*
+ Dado un número entero, imprimir:
+
+ "Negativo": si el número es menor a 0.
+ "Cero": si el número es 0
+ "Positivo": si el número es mayor a cero pero menor a 100.
+ "Grande": si el número es mayor o igual a 100.
+
+ - Realizar una función que reciba el número y retorne el mensaje.
+ - El retorno debe sser impreso en la consola.
+ - Realizar una versión if-else, switch y operador ternario
+
+*/
+
+const condicionNumeroIE = numero => {
+    if (numero <0) return "Negativo";
+    else if (numero === 0 ) return "Cero";
+    else if (numero > 0 && numero < 100) return "Positivo";
+    else return "Grande";
+}
+const condicionNumeroSwitch = numero => {
+    let msj;
+    switch (true) {
+        case numero < 0:
+            msj = "Negativo"
+            break;
+        case numero === 0:
+            msj = "Cero"
+            break;
+        case numero > 0 && numero < 100:
+            msj = "Positivo"
+            break;
+        default:
+            msj = "Grande"
+            break;
+    }
+    return msj;
+}
+
+const condicionNumeroOT = numero => {
+    let msj;
+    msj = numero < 0 ? "Negativo" : 
+          numero === 0 ? "Cero" : 
+          numero <100 ? "Positivo" : "Grande";
+    return msj;
+}
+
+console.log(condicionNumeroIE(-1));
+console.log(condicionNumeroIE(0));
+console.log(condicionNumeroIE(50));
+console.log(condicionNumeroIE(200));
+
+console.log(condicionNumeroSwitch(-1));
+console.log(condicionNumeroSwitch(0));
+console.log(condicionNumeroSwitch(50));
+console.log(condicionNumeroSwitch(200));
+
+console.log(condicionNumeroOT(-1));
+console.log(condicionNumeroOT(0));
+console.log(condicionNumeroOT(50));
+console.log(condicionNumeroOT(200));
 
 /**
  *  Función que reciba la edad de una persona y devuelva el mensaje:
