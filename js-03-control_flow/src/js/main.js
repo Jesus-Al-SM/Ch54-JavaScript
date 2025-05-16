@@ -149,7 +149,32 @@ if( active ); console.log("Está activo");
 
 */
 
-
+const evaluarNombre = ( nombre ) => {
+    let resultado;
+    switch ( nombre){
+        case "Lua":
+            resultado = "Es de Abril";
+            break;
+        case "Borrego": 
+        case "Besito":
+        case "Fijól":
+        case "Paco":
+            resultado = "Es de Yessica";
+            break;
+        case "Milo":
+            resultado = "Es de Carlos";
+            break
+        case "Cuchara":
+            resultado = "Es de Ricardo";
+            break;
+        default:
+            resultado ="No se sabe de quién es";        
+    }
+    return resultado;
+}
+console.log( evaluarNombre("Lua") ); // Es de Abril
+console.log( evaluarNombre("Milo") ); // Es de Carlos
+console.log( evaluarNombre("Borrego") ); // Es de Jessica
 
 
 /**
@@ -162,9 +187,49 @@ if( active ); console.log("Está activo");
  * Cualquier otro valor: Velocidad desconocida
  * @param {number} velocidad
  * @returns {string} mensaje
+ * 
+ *  Realizar dos versiones, na versión con switch y otra con if-else
  */
+const velocimetroCasero = velocidad => {
+let resultado;
+    switch (velocidad) {
+        case 0:
+            resultado = "Apagado";
+            break;
+        case 1:
+            resultado = "Baja";
+            break;
+        case 2:
+            resultado = "Media"
+            break;
+        case 3:
+            resultado = "Alta";
+            break;
+        default:
+            resultado =`${velocidad}, no es un valor que funciona`
+            break;
+    }
+    return resultado;
+}
 
+console.log(velocimetroCasero(1));
+console.log(velocimetroCasero(2));
+console.log(velocimetroCasero(3));
+console.log(velocimetroCasero(4));
 
+const velocimetroCasero2 = velocidad =>{
+let resultado;
+    if (velocidad === 0) return "Esta apagado";  
+    else if (velocidad === 1) return "Esta en baja";
+    else if (velocidad === 2) return "Esta en medio";
+    else if (velocidad === 3) return "Esta en Alta";
+    else return `${velocidad} no es un valor que funciona`;
+}
+
+console.log(velocimetroCasero2(1));
+console.log(velocimetroCasero2(2));
+console.log(velocimetroCasero2(3));
+console.log(velocimetroCasero2(4));
 
 
 // ------------------------ Operador ternario --------------------------
