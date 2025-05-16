@@ -50,10 +50,61 @@ for ( const color of colores ) {
  *  const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
  *  - Usar for of
  *  - De preferencia usar una función 
+ *    <li> Juan Gabriel </li>
  */
 const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
 const refListaCantantes = document.getElementById("cantantes-lista");
 
+//<ul class="text-start" id="cantantes-lista"></ul>
+
+
+// Imprimir en consola cada uno de los elementos de los cantantes, usando for of
+// La salida deber ser como "Juan Gabriel - José José - Rocío Dúrcal - Ana Gabriel -"
+
+// Manipulación de un array
+const imprimirCantantes = ( lista ) => {
+    let cantantesConcatenados = "";
+    for (const cantante of lista) {
+        console.log(cantante);
+        //cantantesConcatenados = cantantesConcatenados + cantante + " - ";
+        cantantesConcatenados +=  cantante + " - ";
+    }
+    return cantantesConcatenados
+}
+console.log(imprimirCantantes(cantantes));
+
+// Imprimir en Dom un arreglo como lista
+const imprimirCantantesDom = ( lista ) => {
+    let cantantesConcatenados = "";
+    for (const cantante of lista) {
+        console.log(cantante);
+        //cantantesConcatenados = cantantesConcatenados + cantante + " - ";
+        cantantesConcatenados += "<li>" + cantante + "</li>";
+    }
+    return cantantesConcatenados;
+}
+
+refListaCantantes.innerHTML = imprimirCantantesDom(cantantes);
+
+/* // Sin concatenar
+const cantantesTrova = [
+    "Joan Manuel Serrat", 
+    "Silvio Rodriguez", 
+    "Alberto Cortés", 
+    "Ana Belén", 
+    "Joaquín Sabina", 
+    "Victor Manuel"];
+function cantantesEnLista(lista){
+    const ul = document.getElementById("cantantes-lista");
+
+    for (const cantante of lista ){
+        const li = document.createElement("li");
+        li.textContent = cantante;
+        ul.appendChild(li);
+    }
+}
+
+cantantesEnLista(cantantesTrova); */
 
 
 // ------------------- Uso de break en ciclos ----------------------------
@@ -68,6 +119,7 @@ for ( ;   ;  ){
         break;
     }
 }
+
 
 // ------------------- Uso de break y label en ciclos anidados ----------------------------
 multiplicando:
@@ -120,3 +172,46 @@ for (let i = 0 ; i <= 5; i++ ){
 */
 
 
+/*
+ Pregunta al usuario si quire que se genere su númer de la suerte.
+ Si la respuesta es "si", genera de forma aleatoria un número.
+ En cas contrario, despedirse.
+*/ 
+/* while(  confirm("¿Quieres tu número de la suerte")  ){
+    const numeroSuerte = Math.random();
+    console.log("Tu número de la suerte es: " + numeroSuerte);
+} */
+
+/* 
+ Uso de Math.random();
+ Generar 5 números aleatorios.
+ Los números deben estar entre el 0.0 y 10.0(sin incluir 10.0)
+*/
+
+const generarNumerosAleatorios = (cantidad) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random() * 10;
+        console.log("Número aleatorio: ", numeroAleatorio); // 0.0...10.0
+    }
+    return numerosAleatorios;
+};
+generarNumerosAleatorios(5);
+
+/* 
+ Uso de Math.random();
+ Generar 5 números aleatorios.
+ Los números deben estar entre el 0.0 y 10.0(sin incluir 10.0)
+*/
+
+const generarNumerosAleatorios2 = (cantidad) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random() * 10;
+        const escalarNumero = numeroAleatorio *10
+        const numerosEntero = Math.floor(escalarNumero);
+        console.log("Número aleatorio: ", numerosEntero); // 0.0...10.0
+    }
+    return numerosAleatorios;
+};
+generarNumerosAleatorio2(5);
