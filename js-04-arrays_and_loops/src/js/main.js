@@ -194,7 +194,7 @@ const generarNumerosAleatorios = (cantidad) => {
         const numeroAleatorio = Math.random() * 10;
         console.log("Número aleatorio: ", numeroAleatorio); // 0.0...10.0
     }
-    return numerosAleatorios;
+   
 };
 generarNumerosAleatorios(5);
 
@@ -212,6 +212,93 @@ const generarNumerosAleatorios2 = (cantidad) => {
         const numerosEntero = Math.floor(escalarNumero);
         console.log("Número aleatorio: ", numerosEntero); // 0.0...10.0
     }
-    return numerosAleatorios;
+    
 };
-generarNumerosAleatorio2(5);
+generarNumerosAleatorios2(5);
+
+/*
+      Melate Chocolate
+      1.- Al puldar el botón Generar mis número de la suerte.
+      1. Generar 6 números aleatorios entre el 1 y el 54.
+      2.- Mostrar el resultado en el DOM.
+*/
+
+/**
+ * Generar un número aleatorio entre un rango de números
+ * @param {number} minNum 
+ * @param {number} maxNum 
+ */
+const generarNumeroAleatorio = (minNum, maxNum) => {
+    const numeroAleatorio = Math.random();
+    const escalarNumero = numeroAleatorio * ( (maxNum - minNum ) + 1);
+    const numeroEntero = Math.floor(escalarNumero + minNum);
+    return numeroEntero;
+};
+
+
+const elNumeroExisteEnArreglo = (arreglo, numero) => {
+    for (const elemento of arreglo){
+        if( elemento === numero) return true
+    }
+    return false;
+}
+
+
+const imprimirMelateChocolate = ( numeros ) => {
+    const referencia = document.getElementById("melate-chocolate");
+    referencia.innerHTML = ` ${numeros.join(' - ')} `;
+}
+const generarNumerosDeLaSuerte = (size = 6, minNum = 1, maxNum = 54) => {
+    const numeros = [];
+    while( numeros.length < size ){
+        const numAleatorio = generarNumeroAleatorio(minNum, maxNum);
+        if( elNumeroExisteEnArreglo(numeros, numAleatorio) === false ){
+            numeros.push(numAleatorio);
+        }
+    }
+    imprimirMelateChocolate(numeros);
+    
+}
+
+// ---------------- Uso del método sort() -----------------
+const numerosIniciales = [ 5, 33, 8, 100, 4, 2, 7, 6 ];
+                        //[ 5, 33, 8, 100, 4, 2, 7, 6 ] iteración 0
+                        //[ 5, 8, 33, 100, 4, 2, 7, 6 ] iteración 1
+                        //[ 5, 8, 33, 100, 4, 2, 7, 6 ] iteración 2
+                        //[ 5, 8, 33, 4, 100, 2, 7, 6 ] iteración 3
+                        //[ 5, 8, 33, 4, 2, 100, 7, 6 ] iteración 4
+                        //[ 5, 8, 33, 4, 2, 7, 100, 6 ] iteración 5
+                        //[ 5, 8, 33, 4, 2, 7, 6, 100 ] iteración 6
+
+
+const comparaNumeros = ( a, b ) => {
+    if ( a < b ) return -1;
+    if ( a > b ) return 1;
+    return 0;
+}
+
+const comparaNumeros2 = (a, b) => a - b;
+
+const comparaNumerosDescen = ( a, b ) => {
+    if ( a < b ) return 1;
+    if ( a > b ) return -1;
+    return 0;
+}
+
+const comparaNumerosDescen2 = ( a, b ) => b - a;
+
+const ordenarNumeros = ( numerosDesordenados, tipoOrden)=>{
+    const numerosOrdenados = numerosDesordenados.slice();
+    numerosOrdenados.sort( tipoOrden );
+    return numerosOrdenados;
+}
+
+
+console.log(numerosIniciales);
+
+console.log(ordenarNumeros(numerosIniciales, comparaNumeros));
+console.log(ordenarNumeros(numerosIniciales, comparaNumeros2));
+
+console.log(ordenarNumeros(numerosIniciales,comparaNumerosDescen));
+console.log(ordenarNumeros(numerosIniciales,comparaNumerosDescen2));
+
